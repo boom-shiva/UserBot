@@ -23,8 +23,8 @@ async def mention_afk(mention):
         if ISAFK:
             if mention.sender_id not in USERS:
                 await mention.reply(
-                    f"My owner is offline right now."
-                    "\nReason :  ` {AFKREASON} `." 
+                    "My owner is offline right now."
+                    "\nReason :`{AFKREASON}`." 
                 )
                 USERS.update({mention.sender_id: 1})
                 COUNT_MSG = COUNT_MSG + 1
@@ -32,7 +32,7 @@ async def mention_afk(mention):
                 if USERS[mention.sender_id] % 5 == 0:
                     await mention.reply(
                         "My owner is still not here."
-                        f"\nReason : ` {AFKREASON} `."
+                        f"\nReason :`{AFKREASON}`."
                     )
                     USERS[mention.sender_id] = USERS[mention.sender_id] + 1
                     COUNT_MSG = COUNT_MSG + 1
@@ -52,7 +52,7 @@ async def afk_on_pm(sender):
             if sender.sender_id not in USERS:
                 await sender.reply(
                     f"My owner is offline right now."
-                    "\nReason : ` {AFKREASON} `."
+                    f"\nReason :`{AFKREASON}`."
                 )
                 USERS.update({sender.sender_id: 1})
                 COUNT_MSG = COUNT_MSG + 1
